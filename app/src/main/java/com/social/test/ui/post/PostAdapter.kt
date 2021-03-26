@@ -1,5 +1,7 @@
 package com.social.test.ui.post
 
+import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatButton
@@ -9,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.social.test.R
 import com.social.test.data.model.PhotosResponseItem
 import com.social.test.data.model.PostResponseItem
+import com.social.test.ui.comment.CommentsActivity
+import com.social.test.utils.AppConstants
 import com.squareup.picasso.Picasso
 
 
@@ -65,6 +69,16 @@ class PostViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
             Picasso.with(it.context)
                 .load(postList?.userImage)
                 .into(it)
+        }
+
+        btnComment?.setOnClickListener {
+
+            val intent = Intent(it.context, CommentsActivity::class.java)
+            val bundle = Bundle()
+            bundle.putString(AppConstants.postID, postList?.id.toString())
+            intent.putExtras(bundle)
+            it.context.startActivity(intent)
+
         }
 
     }

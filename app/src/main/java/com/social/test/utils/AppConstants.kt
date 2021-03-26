@@ -6,6 +6,7 @@ class AppConstants {
         const val BaseURL = "https://jsonplaceholder.typicode.com/"
         const val UserID = "USER_ID"
         const val UserName = "USER_NAME"
+        const val postID = "POST_ID"
 
     }
 

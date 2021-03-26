@@ -1,5 +1,6 @@
 package com.social.test.api
 
+import com.social.test.data.model.CommentsResponseItem
 import com.social.test.data.model.PhotosResponseItem
 import com.social.test.data.model.PostResponseItem
 import com.social.test.data.model.UserResponseItem
@@ -17,4 +18,7 @@ interface ApiService {
 
     @GET("/posts?")
     fun getPostList( @Query("userId") userId: String?):Call<List<PostResponseItem>>
+
+    @GET("/comments")
+    fun getComments(@Query("postId") postId: String?): Call<List<CommentsResponseItem>>
 }
